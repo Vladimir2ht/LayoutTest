@@ -1,0 +1,23 @@
+
+#app.map-page .v-main__wrap {
+
+	.v-list.v-sheet {
+		background-color: #e5e1dF;
+	}
+
+	[role="listitem"] {
+		margin: 20px;
+		.row {
+			height: 100%;
+			margin: 0;
+			.col {
+				padding: 0;
+			}
+		}
+	}
+	div.v-image {
+		border-bottom-left-radius: 12px;
+		border-top-left-radius: 12px;
+		height: 100%;
+	}
+}

@@ -1,9 +1,9 @@
 <template>
-  <v-app-bar
+  <v-app-bar style="margin-top: 90px; height: 90px;"
     fixed
     app
     elevation="1"
-    class="mt-16 pt-4 align-center align-baseline d-flex align-content-center"
+    class="align-center align-baseline d-flex align-content-center"
   >
     <v-select
       v-model="filters.houseType"
@@ -15,20 +15,43 @@
       item-text="title"
       item-value="id"
       class="full_search__panel__select--house-types"
+    ></v-select>
+    <v-select
+      v-model="filters.houseType"
+      :items="houseTypes"
+      multiple
+      chips
+      deletable-chips
+      label="Тип аренды"
+      item-text="title"
+      item-value="id"
+      class="full_search__panel__select--house-types"
+    ></v-select>
+    <v-select
+      v-model="filters.houseType"
+      :items="houseTypes"
+      multiple
+      chips
+      deletable-chips
+      label="Цена"
+      item-text="title"
+      item-value="id"
+      class="full_search__panel__select--house-types"
     >
-      <!--      <template v-slot:selection="{ item, index }">-->
-      <!--        <v-chip v-if="index < 2">-->
-      <!--          <span>{{ item.title }}</span>-->
-      <!--        </v-chip>-->
-      <!--        <span-->
-      <!--          v-if="index >= 2"-->
-      <!--          class="grey&#45;&#45;text text-caption"-->
-      <!--        >-->
-      <!--          (и еще {{ filters.houseType.length - 2 }})-->
-      <!--        </span>-->
-      <!--      </template>-->
+      <!-- <template v-slot:selection="{ item, index }">
+        <v-chip v-if="index < 2">
+          <span>{{ item.title }}</span>
+        </v-chip>
+        <span
+          v-if="index >= 2"
+          class="grey&#45;&#45;text text-caption">
+          (и еще {{ filters.houseType.length - 2 }})
+        </span>
+  	  </template> -->
     </v-select>
-    <v-chip-group v-model="filters.options" multiple class="ml-2 mb-4">
+    <div class="vertical-line"></div>
+    
+    <v-chip-group v-model="filters.options" multiple class="ml-4 mr-4 mb-4">
       <v-chip
         v-for="item in optionsList"
         v-show="item.primary"
@@ -40,6 +63,7 @@
       >
     </v-chip-group>
 
+    <div class="vertical-line"></div>
     <v-dialog
       v-model="advancedFiltersShow"
       persistent
@@ -48,14 +72,12 @@
     >
       <template #activator="{ on, attrs }">
         <v-btn
-          class="ma-2 mb-6"
-          small
+          class="ml-4 mb-4"
           outlined
-          rounded
           color="secondary"
           v-bind="attrs"
           v-on="on"
-        >
+        >Все фильтры
           <v-badge
             :content="filterCount"
             :value="filterCount"
@@ -64,7 +86,7 @@
             offset-x="8"
             offset-y="5"
           >
-            <v-icon>mdi-format-list-bulleted-square</v-icon>
+            <v-icon>mdi-dots-vertical</v-icon>
           </v-badge>
         </v-btn>
       </template>

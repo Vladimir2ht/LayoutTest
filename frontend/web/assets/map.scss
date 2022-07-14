@@ -1,0 +1,223 @@
+.date-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 12px;
+  background: $button-background;
+  border-radius: 12px;
+  height: 52px;
+  .vertical-line {
+    height: 28px;
+    margin: 0 12px;
+  	position: static;
+		@media (max-width: 900px) {
+			display: block;
+		}
+	}
+}
+
+.vertical-line {
+  border-left: 1px solid #AFAFB0;
+  height: 32px;
+  position: relative;
+	top: -8px;
+	@media (max-width: 900px) {
+		display: none;
+	}
+}
+
+#app.map-page header{ 
+  background: #EBEBEC;
+  padding: 22px;
+	@media (max-width: 900px) {
+		padding: 18px;
+	}
+	 
+	.v-btn--icon {
+    height: 49px;
+    width: 64px;
+		@media (max-width: 900px) {
+			width: 46px;
+			span{
+				height: 30px;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+		}
+	}
+	.logo-line {
+		@media (max-width: 900px) {
+			border: solid 3px $primary;
+			border-radius: 2px;
+			width: 26px;
+		}
+	}
+	svg {
+		@media (max-width: 900px) {
+			display: none;
+		}
+	}
+  
+	.v-toolbar__content {
+    padding: 0;
+
+		@media (max-width: 900px) {
+			height: 32px;
+			width: 100%;
+		}
+  }
+  
+	.rounderer {
+    border-radius: 16px;
+    &.v-btn--plain {
+      border: 1px solid $primary;
+      height: 48px;
+      color: $primary;
+      background: rgba(255, 251, 249, 0.6)
+    }
+
+		@media (max-width: $bp-md) {
+			display: none;
+		}
+
+		&.mr-md-2{
+			@media (min-width: $bp-md) {
+				margin-right: 20px;
+			}
+		}
+  }
+ 
+	.date-input {
+		max-width: 90px;
+    margin: 0 3px;
+		@media (max-width: $bp-lg) {
+			margin: 0 2px;
+			max-width: 43px;
+		}
+  }
+	
+	[role="combobox"] .v-input__append-inner {
+		display: none;
+	}
+	
+	[role="combobox"]::before {
+		border: 0px;
+	}
+  
+	#input-23 {
+    text-align: right;
+    padding-right: 3px;
+  }
+	#input-337 {
+    overflow: hidden;
+	}
+	#input-17 {
+		text-align: center;
+  }
+	
+	.v-select__slot {
+		max-width: 170px;
+		@media (max-width: $bp-lg) {
+			max-width: 116px;
+			margin-left: 10px;
+		}
+  }
+
+	form .v-input__slot {
+    background: $button-background;
+    box-shadow: none;
+    padding: 0;
+    border-radius: 0;
+    position: relative;
+    bottom: -13px;
+  }
+
+
+// Нижняя половина меню.
+
+
+	.full_search__panel__select--house-types {
+    margin-right: 16px;
+		
+		@media (max-width: 900px) {
+			display: none;
+		}
+
+		.v-input__slot {
+      background: $button-background;
+      box-shadow: none;
+      padding: 0 25px 0 20px;
+      border-radius: 16px;
+      align-items: center;
+      width: 200px;
+      height: 56px;
+			overflow: hidden;
+      
+      &::before {
+        border: 0px;
+      }
+			.v-select__slot { 
+      width: 100%;
+			}
+		}
+	}
+	.v-chip-group {
+		@media (max-width: 1460px) {
+    	display: none;
+ 		}
+	}
+	.v-slide-group {
+		span {
+			height: 56px;
+			padding: 0;
+			margin: 0 2px;
+			border-radius: 12px;
+
+			&.v-slide-item--active {
+				&::before{
+					opacity: 0;
+				}
+
+				.v-chip__content {
+					border: 1px solid #33BDB5;
+					background: #E6F7F6;
+				}
+			}
+
+			.v-chip__content {
+				padding: 16px;
+				margin: 0px;
+				background: $button-background;
+				border: 1px solid #D7D7D8;
+			}
+
+			.v-icon {
+				display: none;
+			}
+	  }
+	}
+	
+	button[aria-haspopup] {
+		background: #E6F7F6;
+		border: 1px solid #D7D7D8;
+		border-radius: 16px;
+		padding: 16px;
+		height: 56px;
+		@media (max-width: 900px) {
+			width: 100%;
+			border-radius: 12px;
+		}
+
+		.v-badge__badge {
+			background-color: #33BDB5 !important;
+    border-color: #33BDB5 !important;
+		}
+	}
+}
+
+.search__container__row__map {
+	@media ( max-width: 960px ) {
+		display: none;
+	}
+}

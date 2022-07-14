@@ -3,15 +3,13 @@
     v-if="orientation == 'horizontal'"
     class="object__card--horizontal rounded-lg elevation-1"
   >
-    <v-container>
-      <v-row>
-        <v-col class="pb-0" style="max-width: 270px">
+    <v-row>
+        <v-col class="" style="width: 40%">
           <v-img
             min-width="224px"
             max-width="260px"
             lazy-src="/1.jpg"
             src="/1.jpg"
-            class="rounded-lg"
           ></v-img>
         </v-col>
         <v-col class="pb-0 d-flex align-end flex-column">
@@ -28,15 +26,12 @@
           <v-card-text class="mt-1 grow">
             <v-row>
               <span class="mr-4">
-                <v-icon color="primary">mdi-account-supervisor-outline</v-icon>
                 До {{ maxGuests | word_case(['гостя', 'гостей', 'гостей']) }}
               </span>
               <span class="mr-4">
-                <v-icon color="accent">mdi-door-open</v-icon>
                 {{ rooms | word_case(['комната', 'комнаты', 'комнат']) }}
               </span>
               <span class="mr-4">
-                <v-icon>mdi-hammer-sickle</v-icon>
                 {{ square }} м<sup>2</sup>
               </span>
             </v-row>
@@ -73,12 +68,11 @@
               </div>
             </v-flex>
             <v-flex class="text--darken-2 text--secondary text-h6 text-right">
-              <span>{{ value.price | currency }}</span>
+              <span>{{ value.price | currency }}/ночь</span>
             </v-flex>
           </v-card-actions>
         </v-col>
       </v-row>
-    </v-container>
   </v-card>
 
   <v-card
@@ -170,7 +164,7 @@ export default {
             title: 'Wi-Fi',
             order: 0,
             primary: true,
-            icon: 'mdi-access-point',
+            icon: 'mdi-wifi',
           },
           {
             id: '2',

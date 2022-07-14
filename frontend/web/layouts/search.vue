@@ -1,6 +1,6 @@
 <template>
-  <v-app light>
-    <base-header search />
+  <v-app light class="map-page">
+    <base-header style="height: 90px;" search/>
     <full-search-form></full-search-form>
     <v-main app class="pa0">
       <Nuxt />
