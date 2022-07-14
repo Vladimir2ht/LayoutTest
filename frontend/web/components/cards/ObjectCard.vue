@@ -4,7 +4,7 @@
     class="object__card--horizontal rounded-lg elevation-1"
   >
     <v-row>
-        <v-col class="" style="width: 40%">
+        <v-col class="" style="max-width: 40%">
           <v-img
             min-width="224px"
             max-width="260px"
@@ -13,10 +13,13 @@
           ></v-img>
         </v-col>
         <v-col class="pb-0 d-flex align-end flex-column">
-          <v-card-subtitle
-            class="align-self-start text--secondary text-caption text-uppercase pa-0"
-            >{{ value.type.title }}</v-card-subtitle
-          >
+          <div class="top-line">
+            <v-card-subtitle
+              class="align-self-start text--secondary text-caption text-uppercase pa-0"
+              >{{ value.type.title }}
+            </v-card-subtitle>
+            <v-icon>mdi-cards-heart-outline</v-icon>
+          </div>
           <v-card-title
             class="align-self-start text-h6 pt-0 pb-5 pl-0 text-break"
             style="line-height: 1.3rem"
@@ -35,7 +38,7 @@
                 {{ square }} м<sup>2</sup>
               </span>
             </v-row>
-            <v-row class="mt-5">
+            <v-row class="mt-2">
               <v-chip
                 v-for="item in value.options"
                 v-show="item.primary"
@@ -49,22 +52,22 @@
                 {{ item.title }}
               </v-chip>
             </v-row>
+            <v-row>
+              <ul>
+                <li>Несколько вариантов питания</li>
+                <li>Горячее предложение</li>
+                <li>Предоплата</li>
+              </ul>
+            </v-row>
           </v-card-text>
           <v-spacer></v-spacer>
           <v-card-actions
             class="object__card--horizontal__card-actions pb-0 mt-auto d-flex w-100"
           >
             <v-flex class="d-inline-flex align-center">
-              <v-rating
-                :value="value.rating.value"
-                color="amber"
-                dense
-                half-increments
-                readonly
-                size="14"
-              ></v-rating>
+              <v-icon>mdi-star</v-icon>
               <div class="grey--text text-caption">
-                {{ value.rating.value }} ({{ value.reviews.count }})
+                {{ value.rating.value }} ({{ value.reviews.count }} отзывов)
               </div>
             </v-flex>
             <v-flex class="text--darken-2 text--secondary text-h6 text-right">
@@ -102,14 +105,6 @@
       </v-card-title>
       <v-card-text>
         <v-row align="center" style="width: 90%">
-          <v-rating
-            :value="value.rating.value"
-            color="amber"
-            dense
-            half-increments
-            readonly
-            size="14"
-          ></v-rating>
           <div class="grey--text text-caption">
             {{ value.rating.value }} ({{ value.reviews.count }})
           </div>
@@ -192,7 +187,7 @@ export default {
           },
         ],
         rating: {
-          value: 3.5,
+          value: 3.52,
           detail: {},
         },
         reviews: {

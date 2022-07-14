@@ -1,17 +1,57 @@
 
 #app.map-page .v-main__wrap {
-
+	
+	// .col-12 {
+	// }
 	.v-list.v-sheet {
+		@media ( min-width: 960px ) {
+			width: clamp(500px, calc(500px + (100vw -1000px) / 5), 812px);
+		}
 		background-color: #e5e1dF;
 	}
 
 	[role="listitem"] {
 		margin: 20px;
-		.row {
-			height: 100%;
-			margin: 0;
-			.col {
-				padding: 0;
+
+		.object__card--horizontal {
+			height: 250px;
+			& > .row {
+				height: 100%;
+				margin: 0;
+				.col {
+					padding: 0;
+
+					.top-line{
+						display: flex;
+						justify-content: space-between;
+						width: 100%;
+						margin-top: 16px;
+						vertical-align: middle;
+					}
+					.mdi-cards-heart-outline {
+						float: right;
+						position: relative;
+						bottom: 6px;
+						right: 20px;
+					}
+					.v-card__title {
+						padding: 0 10px 10px 0 !important;
+					}
+
+					.v-card__text {
+						font-size: 12px;
+						
+						ul {
+							font-size: 10px;
+							line-height: 16px;
+							color: $primary;
+						}
+					}
+					.mdi-star {
+						color: #FB8C00;
+					}
+
+				}
 			}
 		}
 	}

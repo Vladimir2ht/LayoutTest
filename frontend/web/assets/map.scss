@@ -217,6 +217,8 @@
 }
 
 .search__container__row__map {
+	position: relative;
+	left: clamp(500px, calc(500px + (100vw -1000px) / 5), 812px);
 	@media ( max-width: 960px ) {
 		display: none;
 	}
