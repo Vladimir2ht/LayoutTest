@@ -3,7 +3,7 @@
     fixed
     app
     elevation="1"
-    class="align-center align-baseline d-flex align-content-center"
+    class="second-header align-center align-baseline d-flex align-content-center"
   >
     <v-select
       v-model="filters.houseType"
@@ -72,7 +72,7 @@
     >
       <template #activator="{ on, attrs }">
         <v-btn
-          class="ml-4 mb-4"
+          class="mb-4"
           outlined
           color="secondary"
           v-bind="attrs"

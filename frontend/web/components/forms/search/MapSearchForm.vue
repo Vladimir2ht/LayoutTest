@@ -69,7 +69,7 @@
           ></v-date-picker>
         </v-menu>
       <div class="vertical-line"></div>
-      <div>3 гостя, 1 питомец</div>
+      <div class="serch-characteristics">3 гостя, 1 питомец</div>
     </div>
   </v-form>
 </template>
