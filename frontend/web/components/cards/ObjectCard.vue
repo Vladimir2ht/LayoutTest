@@ -6,13 +6,12 @@
     <v-row>
         <v-col class="" style="max-width: 40%">
           <v-img
-            min-width="224px"
             max-width="260px"
             lazy-src="/1.jpg"
             src="/1.jpg"
           ></v-img>
         </v-col>
-        <v-col class="pb-0 d-flex align-end flex-column">
+        <v-col class="d-flex align-end flex-column">
           <div class="top-line">
             <v-card-subtitle
               class="align-self-start text--secondary text-caption text-uppercase pa-0"
@@ -21,7 +20,7 @@
             <v-icon>mdi-cards-heart-outline</v-icon>
           </div>
           <v-card-title
-            class="align-self-start text-h6 pt-0 pb-5 pl-0 text-break"
+            class="align-self-start text-h6 pt-0 pb-5 pl-0 text-break big-text"
             style="line-height: 1.3rem"
           >
             {{ value.title }}
@@ -71,7 +70,7 @@
               </div>
             </v-flex>
             <v-flex class="text--darken-2 text--secondary text-h6 text-right">
-              <span>{{ value.price | currency }}/ночь</span>
+              <span class="big-text">{{ value.price | currency }}/ночь</span>
             </v-flex>
           </v-card-actions>
         </v-col>

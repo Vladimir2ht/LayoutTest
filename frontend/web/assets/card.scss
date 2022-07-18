@@ -1,13 +1,66 @@
 
 #app.map-page .v-main__wrap {
-	
-	// .col-12 {
-	// }
+
 	.v-list.v-sheet {
-		@media ( min-width: 960px ) {
-			width: clamp(500px, calc(500px + (100vw -1000px) / 5), 812px);
-		}
+		width: 520px;
 		background-color: #e5e1dF;
+		padding-top: 20px;
+
+		@media ( min-width: 1100px ) {
+			width: clamp(500px, calc(500px + (100vw -1100px) / 5), 812px);
+		}
+		@media ( max-width: $bp-md ) {
+			padding-top: 40px;
+		}
+		@media ( max-width: 880px ) {
+			width: 100%;
+			padding-top: 60px;
+		}
+		.card-changer {
+			display: flex;
+			justify-content: center;
+			margin: 40px 0;
+			@media ( min-width: 880px ) {
+				margin: 25px 0 40px 0;
+			}
+			@media ( min-width: $bp-lg ) {
+				margin: 26px 0 20px 0;
+			}
+			button {
+			text-align: center;
+			background: $primary;
+			border-radius: 16px;
+			padding: 8px 24px;
+			color: white;
+
+				&::first-letter {
+					font-size: 18px;
+					font-weight: bold;
+					padding-right: 9px;
+				}
+				@media ( min-width: 880px ) {
+					display: none;
+				}
+			}
+			& > div {
+				
+				height: 34px;
+				width: 34px;
+				display: flex;
+				text-align: center;
+				flex-direction: column;
+				justify-content: center;
+
+				@media ( max-width: 880px ) {
+					display: none;
+				}
+				&.select-cards-page {
+					color: white;
+					background-color: $primary;
+					border-radius: 50%;
+				}
+			}
+		}
 	}
 
 	[role="listitem"] {
@@ -15,11 +68,22 @@
 
 		.object__card--horizontal {
 			height: 250px;
+			width: 100%;
+			@media ( max-width: 1100px ) {
+				height: 177px;
+			}
+
 			& > .row {
 				height: 100%;
 				margin: 0;
+				.col[style="max-width: 40%;"] {
+					margin-right: 16px;
+				}
 				.col {
 					padding: 0;
+					@media ( max-width: 1100px ) {
+						font-size: 10px;
+					}
 
 					.top-line{
 						display: flex;
@@ -35,29 +99,50 @@
 						right: 20px;
 					}
 					.v-card__title {
+
 						padding: 0 10px 10px 0 !important;
 					}
 
 					.v-card__text {
 						font-size: 12px;
-						
+
+						.row.mt-2 {
+							height: 32px;
+							overflow: hidden;
+						}
 						ul {
 							font-size: 10px;
 							line-height: 16px;
 							color: $primary;
+							@media ( max-width: 1100px ) {
+								display: none;
+							}
 						}
 					}
-					.mdi-star {
-						color: #FB8C00;
+					.text-h6 {
+						@media ( max-width: 1100px ) {
+							font-size: 14px !important;
+						}
 					}
 
+					.v-card__actions {
+						padding: 0 14px 14px 0;
+
+						.mdi-star {
+							color: #FB8C00;
+						}
+					}
 				}
 			}
 		}
 	}
+
 	div.v-image {
 		border-bottom-left-radius: 12px;
 		border-top-left-radius: 12px;
-		height: 100%;
+		height: 250px;
+		@media ( max-width: 1100px ) {
+			height: 177px;
+		}
 	}
 }

@@ -8,6 +8,14 @@
                        class="pa-0">
             <object-card></object-card>
           </v-list-item>
+          <div class="card-changer">
+            <button>+ Показать ещё</button>
+              <div>&lt;</div>
+              <div class="select-cards-page">1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>&gt;</div>
+          </div>
         </v-list>
       </v-col>
 
