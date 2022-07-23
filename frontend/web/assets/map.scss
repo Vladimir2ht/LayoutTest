@@ -1,8 +1,23 @@
+#app.map-page {
+	font-family: 'Ubuntu', sans-serif;
+	color: $text-color;
+
+		header .theme--light.v-label, .theme--light.v-icon, input, .v-btn {
+			color: $text-color;
+	}
+}
+
+main.v-main {
+	@media (max-width: 900px) {
+		padding-top: 108px !important;
+	}
+}
+
 .date-menu {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 12px;
+  padding: 0 12px 0 14px;
   background: $button-background;
   border-radius: 12px;
   height: 52px;
@@ -11,8 +26,18 @@
 		height: 32px;
 	}
 
+	i {
+		width: 17px;
+		
+		&::before {
+			height: 18px;
+			font-size: 22px;
+			overflow: hidden;
+		}
+	}
+
   .vertical-line {
-    height: 28px;
+		height: 28px;
     margin: 0 12px;
   	position: static;
 		@media (max-width: 900px) {
@@ -22,7 +47,7 @@
 }
 
 .vertical-line {
-  border-left: 1px solid #AFAFB0;
+	border-left: 1px solid #AFAFB0;
   height: 32px;
   position: relative;
 	top: -8px;
@@ -32,22 +57,23 @@
 }
 
 #app.map-page header{ 
-  background: #EBEBEC;
-  padding: 22px;
-
+	background: #EBEBEC;
+  padding: 22px 22px 22px 20px;
+	// Отступы верхних панелей возможно стоит уточнить
+	@media (max-width: $bp-lg) {
+		padding: 20px 20px 27px 42px;
+	}
 	@media (max-width: 900px) {
 		height: 60px !important;
 		padding: 18px;
 	}
-	 
-	&.second-header {
-		@media (max-width: 900px) {
-		margin-top: 60px !important;
-		}
+	
+	.v-btn {
+		text-transform: none;
 	}
 
 	.v-btn--icon {
-    height: 49px;
+		height: 49px;
     width: 64px;
 		@media (max-width: 900px) {
 			width: 46px;
@@ -88,8 +114,14 @@
     &.v-btn--plain {
       border: 1px solid $primary;
       height: 48px;
-      color: $primary;
-      background: rgba(255, 251, 249, 0.6)
+			width: 148px;
+			color: $primary;
+			background: rgba(255, 251, 249, 0.6);
+			font-family: 'Nunito', sans-serif;
+
+			@media (min-width: $bp-xl) {
+				width: 138px;
+			}
     }
 
 		@media (max-width: $bp-md) {
@@ -123,50 +155,82 @@
 		border: 0px;
 	}
   
-	#input-23 {
+	.heder-right-data input {
     text-align: right;
-    padding-right: 3px;
-  }
-	#input-337 {
-    overflow: hidden;
-	}
-	#input-17 {
-		text-align: center;
+    padding-right: 1px;
   }
 	
-	.v-select__slot {
-		max-width: 170px;
-		@media (max-width: $bp-lg) {
-			max-width: 116px;
-			margin-left: 10px;
-		}
-  }
+	
+	form { 
+		
+		.v-select__slot {
+			max-width: $lg-size-top-panel-el;
+			margin-left: 15px;
+		
+			@media (max-width: $bp-lg) {
+				max-width: 116px;
+			}
+		
+			input{
+				text-align: center;
+			}
 
-	form .v-input__slot {
-    background: $button-background;
-    box-shadow: none;
-    padding: 0;
-    border-radius: 0;
-    position: relative;
-    bottom: -13px;
-		min-height: 30px;
-  }
+		}
+
+		.v-input__slot {
+  	  background: $button-background;
+    	box-shadow: none;
+    	padding: 0;
+  	  border-radius: 0;
+	    position: relative;
+    	bottom: -11px;
+			min-height: 28px;
+			
+			@media (min-width: $bp-lg) {
+				bottom: -13px;
+			}
+	  }
+		
+		.date-input .v-input__slot {
+			bottom: -13px;
+		}
+	}
 
 	.serch-characteristics {
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
+		text-align: center;
+		color: $text-color;
+		
+		@media (min-width: $bp-lg) {
+			width: $lg-size-top-panel-el;
+		}
 	}
 
 
 // Нижняя половина меню.
 
+		 
+	&.second-header {
+		@media (max-width: 900px) {
+			margin-top: 60px !important;
+		}
+	}	
+
+	&.v-sheet.v-app-bar.v-toolbar:not(.v-sheet--outlined) {
+		box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0)
+	}
 
 	.full_search__panel__select--house-types {
     margin-right: 16px;
 		
 		@media (max-width: 900px) {
 			display: none;
+		}
+		
+		[role="button"] {
+			display: block;
 		}
 
 		.v-input__slot {
@@ -183,12 +247,16 @@
         border: 0px;
       }
 			.v-select__slot { 
-      width: 100%;
+      	width: 100%;
+				position: relative;
+				top: 12px;
+				margin-left: 0px;
+				max-width: 154px;
 			}
 		}
 	}
 	.v-chip-group {
-		@media (max-width: 1460px) {
+		@media (max-width: $my-big) {
     	display: none;
  		}
 	}
@@ -230,6 +298,7 @@
 		padding: 16px;
 		height: 56px;
 		margin-left: 16px;
+		// font-family: u;
 		@media (max-width: 900px) {
 			margin-left: 0px;
 			height: 32px;

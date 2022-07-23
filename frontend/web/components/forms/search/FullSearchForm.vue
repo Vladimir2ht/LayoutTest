@@ -1,5 +1,6 @@
 <template>
-  <v-app-bar style="margin-top: 90px; height: 90px;"
+  <v-app-bar 
+    style="margin-top: 90px; height: 90px;"
     fixed
     app
     elevation="1"
@@ -74,7 +75,6 @@
         <v-btn
           class="mb-4"
           outlined
-          color="secondary"
           v-bind="attrs"
           v-on="on"
         >Все фильтры

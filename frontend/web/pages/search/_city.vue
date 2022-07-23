@@ -3,9 +3,11 @@
     <v-row class="search__container__row">
       <v-col cols="12" md="6" lg="5" xl="4" class="pr-md-1">
         <v-list>
-          <v-list-item v-for="i in 10"
-                       :key="i"
-                       class="pa-0">
+          <v-list-item 
+            v-for="i in 10"
+            :key="i"
+            class="pa-0"
+          >
             <object-card></object-card>
           </v-list-item>
           <div class="card-changer">

@@ -5,3 +5,8 @@
 @import "@/assets/card";
 @import "@/assets/reset";
 
+@font-face {
+	font-family: 'Ubuntu';
+	font-style: normal;
+	src: local('Ubuntu'), url(http://example.com/fonts/ubuntu.woff) format('woff');
+}

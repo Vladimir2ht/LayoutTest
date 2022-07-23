@@ -18,9 +18,9 @@
       short
     ></map-search-form>
     <v-spacer />
-    <v-btn filled solo plain raised text class="mr-md-2 rounderer"
-      >Войти</v-btn>
-    <v-btn plain raised text class="rounderer">Регистрация</v-btn>
+    <v-btn filled solo plain class="mr-5 rounderer"
+      >Вход</v-btn>
+    <v-btn plain class="rounderer">Регистрация</v-btn>
   </v-app-bar>
 </template>
 

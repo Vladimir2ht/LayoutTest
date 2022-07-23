@@ -11,7 +11,7 @@
           <span> Пункт назначения </span>
         </v-tooltip>
       <div class="vertical-line"></div>
-        <v-menu
+        <v-menu 
           ref="menuDateFrom"
           v-model="menuDateFrom"
           :close-on-content-click="false"
@@ -23,6 +23,7 @@
           <template #activator="{ on, attrs }">
             <v-text-field
               v-model="dateFromFormatted"
+              class="date-input heder-right-data"
               :prepend-icon="short ? '' : 'mdi-calendar'"
               v-bind="attrs"
               filled
@@ -30,7 +31,6 @@
               :dense="short"
               @blur="dateFrom = parseDate(dateFromFormatted)"
               v-on="on"
-              class="date-input"
             ></v-text-field>
           </template>
           <v-date-picker
@@ -51,6 +51,8 @@
           <template #activator="{ on, attrs }">
             <v-text-field
               v-model="dateToFormatted"
+              class="date-input"
+              style="text-align: right;"
               :prepend-icon="short ? '' : 'mdi-calendar'"
               v-bind="attrs"
               filled
@@ -58,8 +60,6 @@
               :dense="short"
               @blur="dateTo = parseDate(dateToFormatted)"
               v-on="on"
-              class="date-input"
-              style="text-align: right;"
             ></v-text-field>
           </template>
           <v-date-picker
