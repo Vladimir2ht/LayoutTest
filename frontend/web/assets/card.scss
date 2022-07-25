@@ -1,4 +1,11 @@
 
+$litle-font-sise: 10px;
+$litle-line-heigh: 16px;
+@media ( min-width: 1100px ) {
+	$litle-font-sise: 12px;
+	$litle-line-heigh: 20px;
+}
+
 #app.map-page .v-main__wrap {
 
 	.v-list.v-sheet {
@@ -9,23 +16,29 @@
 		@media ( min-width: 1100px ) {
 			width: clamp(500px, calc(500px + (100vw -1100px) / 5), 812px);
 		}
+		
 		@media ( max-width: $bp-md ) {
 			padding-top: 40px;
 		}
+		
 		@media ( max-width: 880px ) {
 			width: 100%;
 			padding-top: 1px;
 		}
+		
 		.card-changer {
 			display: flex;
 			justify-content: center;
 			margin: 40px 0;
+			
 			@media ( min-width: 880px ) {
 				margin: 25px 0 40px 0;
 			}
+			
 			@media ( min-width: $bp-lg ) {
 				margin: 26px 0 20px 0;
 			}
+			
 			button {
 			text-align: center;
 			background: $primary;
@@ -38,12 +51,12 @@
 					font-weight: bold;
 					padding-right: 9px;
 				}
+				
 				@media ( min-width: 880px ) {
 					display: none;
 				}
 			}
 			& > div {
-				
 				height: 34px;
 				width: 34px;
 				display: flex;
@@ -54,6 +67,7 @@
 				@media ( max-width: 880px ) {
 					display: none;
 				}
+				
 				&.select-cards-page {
 					color: white;
 					background-color: $primary;
@@ -69,7 +83,9 @@
 		.object__card--horizontal {
 			height: 250px;
 			width: 100%;
+			border-radius: 12px;
 			box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0);
+			
 			@media ( max-width: 1100px ) {
 				height: 177px;
 			}
@@ -77,11 +93,14 @@
 			& > .row {
 				height: 100%;
 				margin: 0;
+				
 				.col[style="max-width: 40%;"] {
 					margin-right: 16px;
 				}
+				
 				.col {
 					padding: 0;
+					
 					@media ( max-width: 1100px ) {
 						font-size: 10px;
 					}
@@ -90,44 +109,116 @@
 						display: flex;
 						justify-content: space-between;
 						width: 100%;
-						margin-top: 16px;
-						vertical-align: middle;
+						margin-top: 8px;
+						vertical-align: bottom;
+						color: #5F5F61;
+						height: $litle-line-heigh;
+						
+						@media ( min-width: 1100px ) {
+							margin-top: 15px;
+						}
+						
+						.v-card__subtitle.align-self-start {
+							line-height: $litle-line-heigh;
+							font-size: $litle-font-sise;
+						}
 					}
+					
 					.mdi-cards-heart-outline {
 						float: right;
+						transform: scale(0.8, 0.7);
 						position: relative;
-						bottom: 6px;
-						right: 20px;
+						right: 18px;
+						
+						@media ( max-width: 880px ) {
+							right: 3px;
+						}
+						
+						@media ( min-width: 1100px ) {
+							right: 13px;
+						}
 					}
-					.v-card__title {
 
-						padding: 0 10px 10px 0 !important;
+					.big-text {
+						font-size: 14px;
+						line-height: 22px;
+//  То, что написано в макете, у меня не отображается как в макете
+//	По этому стоит другая жирность и шрифт выглядит не так.
+//	Возможно стоит применить text-h6.
+						font-weight: bold;
+						color: $text-color;
+
+						@media ( min-width: 1100px ) {
+							font-size: 16px;
+							line-height: 20px;	
+						}
+
+						// .v-card__title {
+						// 	padding: 0 10px 10px 0 !important;
+						// }
 					}
 
 					.v-card__text {
-						font-size: 12px;
+						
+						span {
+							font-size: $litle-font-sise;
+							line-height: $litle-line-heigh;
+							color: #5F5F61;
 
-						.row.mt-2 {
-							height: 32px;
-							overflow: hidden;
+							span {
+								color: $text-color;
+							}
 						}
+
+						.row.options {
+							overflow: hidden;
+						
+							span.ml-2 {
+								height: 20px;
+							}
+						}
+						
 						ul {
 							font-size: 10px;
 							line-height: 16px;
 							color: $primary;
+
 							@media ( max-width: 1100px ) {
 								display: none;
 							}
 						}
 					}
-					.text-h6 {
-						@media ( max-width: 1100px ) {
-							font-size: 14px !important;
-						}
-					}
-
+					
 					.v-card__actions {
 						padding: 0 14px 14px 0;
+						height: 22px;
+
+						@media ( max-width: 880px ) {
+							flex-direction: column;
+							align-items: flex-start;
+							padding-bottom: 4px;
+						}
+
+						div.marks {
+							color: $text-color;
+							font-size: 12px;
+							line-height: 20px;
+
+							@media ( max-width: 880px ) {
+								font-size: 10px;
+								line-height: 16px;
+							}
+
+							span {
+								color: #5F5F61;
+
+								span {
+									@media ( max-width: 1100px ) and ( min-width: 880px ) {
+										display: none;
+									}
+								}
+							}
+						}
 
 						.mdi-star {
 							color: #FB8C00;
@@ -142,6 +233,7 @@
 		border-bottom-left-radius: 12px;
 		border-top-left-radius: 12px;
 		height: 250px;
+		
 		@media ( max-width: 1100px ) {
 			height: 177px;
 		}

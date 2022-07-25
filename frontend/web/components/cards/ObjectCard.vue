@@ -1,7 +1,7 @@
 <template>
   <v-card
     v-if="orientation == 'horizontal'"
-    class="object__card--horizontal rounded-lg elevation-1"
+    class="object__card--horizontal"
   >
     <v-row>
         <v-col class="" style="max-width: 40%">
@@ -14,38 +14,39 @@
         <v-col class="d-flex align-end flex-column">
           <div class="top-line">
             <v-card-subtitle
-              class="align-self-start text--secondary text-caption text-uppercase pa-0"
+              class="align-self-start pa-0"
               >{{ value.type.title }}
             </v-card-subtitle>
             <v-icon>mdi-cards-heart-outline</v-icon>
           </div>
           <v-card-title
-            class="align-self-start text-h6 pt-0 pb-5 pl-0 text-break big-text"
-            style="line-height: 1.3rem"
+            class="align-self-start pt-0 pb-1 pl-0 text-break big-text"
           >
             {{ value.title }}
           </v-card-title>
           <v-card-text class="mt-1 grow">
             <v-row>
               <span class="mr-4">
-                До {{ maxGuests | word_case(['гостя', 'гостей', 'гостей']) }}
+                {{ maxGuests | word_case(['гость', 'гостя', 'гостей']) }}
               </span>
               <span class="mr-4">
-                {{ rooms | word_case(['комната', 'комнаты', 'комнат']) }}
+                {{ beads | word_case(['кровать', 'кровати', 'кроватей']) }}
               </span>
               <span class="mr-4">
-                {{ square }} м<sup>2</sup>
+                {{ beadrooms | word_case(['спальня', 'спальни', 'спален']) }}
+              </span>
+              <span class="mr-4">
+                {{ square }} м2
               </span>
             </v-row>
-            <v-row class="mt-2">
+            <v-row class="options">
               <v-chip
                 v-for="item in value.options"
                 v-show="item.primary"
                 :key="item.id"
                 outlined
-                small
                 :value="item.id"
-                class="ma-1 ml-0"
+                class="ml-2"
               >
                 <v-icon small left>{{ item.icon }}</v-icon>
                 {{ item.title }}
@@ -65,12 +66,12 @@
           >
             <v-flex class="d-inline-flex align-center">
               <v-icon>mdi-star</v-icon>
-              <div class="grey--text text-caption">
-                {{ value.rating.value }} ({{ value.reviews.count }} отзывов)
+              <div class="marks">
+                {{ value.rating.value }} <span>({{ value.reviews.count }}<span> отзывов</span>)</span>
               </div>
             </v-flex>
-            <v-flex class="text--darken-2 text--secondary text-h6 text-right">
-              <span class="big-text">{{ value.price | currency }}/ночь</span>
+            <v-flex class="text--darken-2 text-right">
+              <span class="big-text">от {{ value.price | currency }} / ночь</span>
             </v-flex>
           </v-card-actions>
         </v-col>
@@ -93,18 +94,17 @@
       >
       </v-img>
       <v-card-subtitle
-        class="text--secondary text-caption text-uppercase pt-1 pb-0"
+        class="text--secondary text-caption pt-1 pb-0"
         >{{ value.type.title }}</v-card-subtitle
       >
       <v-card-title
         class="text-h6 pt-0 pb-5 text-break"
-        style="line-height: 1.3rem"
       >
         {{ value.title }}
       </v-card-title>
       <v-card-text>
         <v-row align="center" style="width: 90%">
-          <div class="grey--text text-caption">
+          <div class="text-caption">
             {{ value.rating.value }} ({{ value.reviews.count }})
           </div>
           <div
@@ -134,63 +134,56 @@ export default {
       type: Object,
       default: () => ({
         id: '1',
-        title: 'Уютная однокомнатная халупа с видом на море  с видом на море',
+        title: 'Уютная однокомнатная квартира с видом на море',
         price: 4500,
         type: {
           id: 1,
           name: 'flat',
-          title: 'квартира',
+          title: 'Квартира',
         },
         params: [
           { id: '1', name: 'square', title: 'Площадь', value: '40' },
-          { id: '2', name: 'rooms', title: 'Количество комнат', value: '2' },
+          { id: '2', name: 'beads', title: 'Количество комнат', value: '2' },
+          { id: '3', name: 'beadrooms', title: 'Количество спален', value: '1' },
           {
-            id: '3',
+            id: '4',
             name: 'max_guests',
-            title: 'Максимальное количество гостей',
-            value: '5',
+            title: 'Kоличество гостей',
+            value: '4',
           },
         ],
         options: [
           {
             id: '1',
             name: 'wifi',
-            title: 'Wi-Fi',
+            title: 'WI-FI',
             order: 0,
             primary: true,
             icon: 'mdi-wifi',
           },
           {
             id: '2',
-            name: 'cond',
-            title: 'Кондиционер',
+            name: 'pets',
+            title: 'Pets friendly',
             order: 1,
             primary: true,
-            icon: 'mdi-cloud-refresh',
+            icon: 'mdi-waves',
           },
           {
             id: '3',
-            name: 'stir',
-            title: 'Стиральная машина',
+            name: 'reset',
+            title: 'Бесплатная отмена',
             order: 2,
             primary: true,
             icon: 'mdi-compass-rose',
           },
-          {
-            id: '4',
-            name: 'utug',
-            title: 'Утюг',
-            order: 3,
-            primary: true,
-            icon: 'mdi-toilet',
-          },
         ],
         rating: {
-          value: 3.52,
+          value: '4,75',
           detail: {},
         },
         reviews: {
-          count: 0,
+          count: 8,
           list: [],
         },
       }),
@@ -214,8 +207,11 @@ export default {
     square() {
       return this.params.get('square').value
     },
-    rooms() {
-      return this.params.get('rooms').value
+    beads() {
+      return this.params.get('beads').value
+    },
+    beadrooms() {
+      return this.params.get('beadrooms').value
     },
     maxGuests() {
       return this.params.get('max_guests').value

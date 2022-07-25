@@ -52,7 +52,7 @@
     </v-select>
     <div class="vertical-line"></div>
     
-    <v-chip-group v-model="filters.options" multiple class="ml-4 mr-4 mb-4">
+    <v-chip-group v-model="filters.options" multiple class="ml-4 mr-3 mb-4">
       <v-chip
         v-for="item in optionsList"
         v-show="item.primary"
@@ -81,7 +81,6 @@
           <v-badge
             :content="filterCount"
             :value="filterCount"
-            color="primary"
             overlap
             offset-x="8"
             offset-y="5"
@@ -278,6 +277,13 @@ export default {
       return this.filters.options.length + this.filters.houseType.length
     },
   },
+  mounted() {
+    // Может не вмсегда работать.
+      this.$el.querySelectorAll('.mdi-menu-down').forEach(el => {
+      el.classList.remove("mdi-menu-down");
+      el.classList.add("mdi-chevron-down");
+    });
+  },
   methods: {
     compareOptionValue(val) {
       console.log(val)
@@ -290,7 +296,6 @@ export default {
 <style scoped>
 .full_search__panel__select--house-types {
   max-width: 450px;
-  /*width: 25%;*/
 }
 .advanced_filters__v-chip.advanced_filters__house_type {
   width: 150px;
