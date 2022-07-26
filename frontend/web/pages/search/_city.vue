@@ -12,11 +12,11 @@
           </v-list-item>
           <div class="card-changer">
             <button>+ Показать ещё</button>
-              <div>&lt;</div>
+              <v-icon>mdi-chevron-left</v-icon>
               <div class="select-cards-page">1</div>
               <div>2</div>
               <div>3</div>
-              <div>&gt;</div>
+              <v-icon>mdi-chevron-right</v-icon>
           </div>
         </v-list>
       </v-col>

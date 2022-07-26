@@ -1,7 +1,8 @@
 
 $litle-font-sise: 10px;
 $litle-line-heigh: 16px;
-@media ( min-width: 1100px ) {
+
+@media ( min-width: $my-1100px ) {
 	$litle-font-sise: 12px;
 	$litle-line-heigh: 20px;
 }
@@ -13,95 +14,57 @@ $litle-line-heigh: 16px;
 		background-color: #e5e1dF;
 		padding-top: 20px;
 
-		@media ( min-width: 1100px ) {
+		@media ( min-width: $my-1100px ) {
 			width: clamp(500px, calc(500px + (100vw -1100px) / 5), 812px);
+			// height: 1180px;
+			// overflow: hidden;
 		}
 		
 		@media ( max-width: $bp-md ) {
 			padding-top: 40px;
 		}
 		
-		@media ( max-width: 880px ) {
+		@media ( max-width: $my-880px ) {
 			width: 100%;
 			padding-top: 1px;
 		}
 		
-		.card-changer {
-			display: flex;
-			justify-content: center;
-			margin: 40px 0;
-			
-			@media ( min-width: 880px ) {
-				margin: 25px 0 40px 0;
-			}
-			
-			@media ( min-width: $bp-lg ) {
-				margin: 26px 0 20px 0;
-			}
-			
-			button {
-			text-align: center;
-			background: $primary;
-			border-radius: 16px;
-			padding: 8px 24px;
-			color: white;
-
-				&::first-letter {
-					font-size: 18px;
-					font-weight: bold;
-					padding-right: 9px;
-				}
-				
-				@media ( min-width: 880px ) {
-					display: none;
-				}
-			}
-			& > div {
-				height: 34px;
-				width: 34px;
-				display: flex;
-				text-align: center;
-				flex-direction: column;
-				justify-content: center;
-
-				@media ( max-width: 880px ) {
-					display: none;
-				}
-				
-				&.select-cards-page {
-					color: white;
-					background-color: $primary;
-					border-radius: 50%;
-				}
-			}
-		}
-	}
-
-	[role="listitem"] {
+		[role="listitem"] {
 		margin: 20px;
-
+		
 		.object__card--horizontal {
 			height: 250px;
 			width: 100%;
 			border-radius: 12px;
 			box-shadow: 0px 0px 0px 0px rgba(255, 255, 255, 0);
 			
-			@media ( max-width: 1100px ) {
+			@media ( max-width: $my-1100px ) {
 				height: 177px;
 			}
-
+			
 			& > .row {
 				height: 100%;
 				margin: 0;
 				
 				.col[style="max-width: 40%;"] {
+					flex-grow: 0.5;
 					margin-right: 16px;
+
+					div.v-image {
+						border-bottom-left-radius: 12px;
+						border-top-left-radius: 12px;
+						height: 250px;
+						
+						@media ( max-width: $my-1100px ) {
+							height: 177px;
+						}
+					}
 				}
 				
 				.col {
 					padding: 0;
 					
-					@media ( max-width: 1100px ) {
+					@media ( max-width: $my-1100px ) {
 						font-size: 10px;
 					}
 
@@ -111,10 +74,10 @@ $litle-line-heigh: 16px;
 						width: 100%;
 						margin-top: 8px;
 						vertical-align: bottom;
-						color: #5F5F61;
+						color: $grey-text;
 						height: $litle-line-heigh;
 						
-						@media ( min-width: 1100px ) {
+						@media ( min-width: $my-1100px ) {
 							margin-top: 15px;
 						}
 						
@@ -130,51 +93,53 @@ $litle-line-heigh: 16px;
 						position: relative;
 						right: 18px;
 						
-						@media ( max-width: 880px ) {
+						@media ( max-width: $my-880px ) {
 							right: 3px;
 						}
 						
-						@media ( min-width: 1100px ) {
+						@media ( min-width: $my-1100px ) {
 							right: 13px;
 						}
 					}
-
+					
 					.big-text {
 						font-size: 14px;
 						line-height: 22px;
-//  То, что написано в макете, у меня не отображается как в макете
-//	По этому стоит другая жирность и шрифт выглядит не так.
-//	Возможно стоит применить text-h6.
+						//  То, что написано в макете, у меня не отображается как в макете
+						//	По этому стоит другая жирность и шрифт выглядит не так.
+						//	Возможно стоит применить text-h6.
 						font-weight: bold;
 						color: $text-color;
-
-						@media ( min-width: 1100px ) {
+						
+						@media ( min-width: $my-1100px ) {
 							font-size: 16px;
-							line-height: 20px;	
+							line-height: $litle-line-heigh;	
 						}
-
-						// .v-card__title {
-						// 	padding: 0 10px 10px 0 !important;
-						// }
 					}
-
+					
 					.v-card__text {
+						padding: 0;
 						
 						span {
 							font-size: $litle-font-sise;
 							line-height: $litle-line-heigh;
-							color: #5F5F61;
-
+							color: $grey-text;
+							
 							span {
 								color: $text-color;
 							}
 						}
-
-						.row.options {
-							overflow: hidden;
 						
-							span.ml-2 {
+						.row {
+							margin: 4px 0 0 0;
+							
+							&.options {
+								overflow: hidden;
 								height: 20px;
+						
+								span.mr-2 {
+									height: 20px;
+								}
 							}
 						}
 						
@@ -182,38 +147,56 @@ $litle-line-heigh: 16px;
 							font-size: 10px;
 							line-height: 16px;
 							color: $primary;
-
-							@media ( max-width: 1100px ) {
+							margin-top: 2px;
+							
+							@media ( max-width: $my-1100px ) {
 								display: none;
 							}
 						}
 					}
 					
 					.v-card__actions {
-						padding: 0 14px 14px 0;
+						padding: 0 0 0 0;
 						height: 22px;
-
-						@media ( max-width: 880px ) {
+						max-width: calc( 100% - 23px);
+						
+						@media ( max-width: $my-880px ) {
 							flex-direction: column;
 							align-items: flex-start;
-							padding-bottom: 4px;
+							height: 46px;
+							margin: 0 0 4px 0;
 						}
-
+						@media ( max-width: $my-1100px ) {
+							margin: 0 23px 8px 0;
+						}
+						@media ( min-width: $my-1100px ) {
+							margin: 0 14px 12px 0;
+							max-width: calc( 100% - 14px);
+						}
+						
 						div.marks {
 							color: $text-color;
 							font-size: 12px;
 							line-height: 20px;
-
-							@media ( max-width: 880px ) {
+							
+							@media ( max-width: $my-880px ) {
 								font-size: 10px;
 								line-height: 16px;
 							}
-
+							
+							& > span {
+								margin-left: 7px;
+								
+								@media ( max-width: $my-1100px ) and ( min-width: $my-880px ) {
+									margin-left: 4px;
+								}
+							}
+							
 							span {
-								color: #5F5F61;
-
+								color: $grey-text;
+								
 								span {
-									@media ( max-width: 1100px ) and ( min-width: 880px ) {
+									@media ( max-width: $my-1100px ) and ( min-width: $my-880px ) {
 										display: none;
 									}
 								}
@@ -222,20 +205,92 @@ $litle-line-heigh: 16px;
 
 						.mdi-star {
 							color: #FB8C00;
+							margin-right: 8px;
+							
+							@media ( max-width: $my-1100px ) and ( min-width: $my-880px ) {
+								margin-right: 5px;
+							}
+							@media ( min-width: $bp-xl ) {
+								top: -4px;
+							}
 						}
+					}
 					}
 				}
 			}
 		}
-	}
 
-	div.v-image {
-		border-bottom-left-radius: 12px;
-		border-top-left-radius: 12px;
-		height: 250px;
-		
-		@media ( max-width: 1100px ) {
-			height: 177px;
+		.card-changer {
+			display: flex;
+			justify-content: center;
+			
+			@media ( min-width: $my-880px ) {
+				margin: 25px 0 41px 0;
+			}
+			
+			@media ( min-width: $bp-lg ) {
+				// background-color: #e5e1dF;
+				// position: fixed;
+				// bottom: -8px;
+				// height: 80px;
+				// width: 812px;
+				margin: 26px 0 20px 0;
+			}
+			
+			button {
+				position: relative;
+				left: 5px;
+				margin: 24px 0 43px;
+				text-align: center;
+				background: $primary;
+				width: 210px;
+				border-radius: 16px;
+				padding: 8px 0px;
+				font-family: 'Nunito Sans', sans-serif;
+				font-size: 14px;
+				line-height: 16px;
+				color: $button-background;
+
+				&::first-letter {
+					font-size: 18px;
+					padding-right: 9px;
+				}
+				
+				@media ( min-width: $my-880px ) {
+					display: none;
+				}
+			}
+			
+			.mdi {
+				color: #AFAFB0;
+				width: 32px;
+
+				&.mdi-chevron-left {
+					margin-right: 8px;
+				}
+			}
+
+			& > div {
+				margin-right: 8px;
+				height: 34px;
+				width: 34px;
+				display: flex;
+				text-align: center;
+				flex-direction: column;
+				justify-content: center;
+				color: $text-color;
+				font-size: 14px;
+
+				@media ( max-width: $my-880px ) {
+					display: none;
+				}
+				
+				&.select-cards-page {
+					color: $gray-border;
+					background-color: $primary;
+					border-radius: 50%;
+				}
+			}
 		}
 	}
 }

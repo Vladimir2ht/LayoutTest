@@ -24,18 +24,18 @@
           >
             {{ value.title }}
           </v-card-title>
-          <v-card-text class="mt-1 grow">
+          <v-card-text class="grow">
             <v-row>
-              <span class="mr-4">
+              <span class="mr-2">
                 {{ maxGuests | word_case(['гость', 'гостя', 'гостей']) }}
               </span>
-              <span class="mr-4">
+              <span class="mr-2">
                 {{ beads | word_case(['кровать', 'кровати', 'кроватей']) }}
               </span>
-              <span class="mr-4">
+              <span class="mr-2">
                 {{ beadrooms | word_case(['спальня', 'спальни', 'спален']) }}
               </span>
-              <span class="mr-4">
+              <span class="mr-2">
                 {{ square }} м2
               </span>
             </v-row>
@@ -46,7 +46,7 @@
                 :key="item.id"
                 outlined
                 :value="item.id"
-                class="ml-2"
+                class="mr-2"
               >
                 <v-icon small left>{{ item.icon }}</v-icon>
                 {{ item.title }}
@@ -62,7 +62,7 @@
           </v-card-text>
           <v-spacer></v-spacer>
           <v-card-actions
-            class="object__card--horizontal__card-actions pb-0 mt-auto d-flex w-100"
+            class="object__card--horizontal__card-actions mt-auto d-flex"
           >
             <v-flex class="d-inline-flex align-center">
               <v-icon>mdi-star</v-icon>
@@ -105,7 +105,7 @@
       <v-card-text>
         <v-row align="center" style="width: 90%">
           <div class="text-caption">
-            {{ value.rating.value }} ({{ value.reviews.count }})
+            {{ value.rating.value }}({{ value.reviews.count }})
           </div>
           <div
             class="text--darken-2 text--secondary text-h6 text-right ml-auto"
@@ -175,7 +175,8 @@ export default {
             title: 'Бесплатная отмена',
             order: 2,
             primary: true,
-            icon: 'mdi-compass-rose',
+            // Не нашёл иконку, стоит заменить.
+            icon: 'mdi-square-wave',
           },
         ],
         rating: {
