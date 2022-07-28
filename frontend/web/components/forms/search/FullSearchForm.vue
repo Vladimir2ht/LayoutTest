@@ -16,6 +16,7 @@
       item-text="title"
       item-value="id"
       class="full_search__panel__select--house-types"
+      @change="ChangeSelectArrow"
     ></v-select>
     <v-select
       v-model="filters.houseType"
@@ -27,6 +28,7 @@
       item-text="title"
       item-value="id"
       class="full_search__panel__select--house-types"
+      @change="ChangeSelectArrow"
     ></v-select>
     <v-select
       v-model="filters.houseType"
@@ -38,6 +40,7 @@
       item-text="title"
       item-value="id"
       class="full_search__panel__select--house-types"
+      @change="ChangeSelectArrow"
     >
       <!-- <template v-slot:selection="{ item, index }">
         <v-chip v-if="index < 2">
@@ -285,6 +288,13 @@ export default {
     });
   },
   methods: {
+    ChangeSelectArrow() {
+      this.$el.querySelectorAll('.mdi-menu-down').forEach(el => {
+        el.classList.remove("mdi-menu-down");
+        el.classList.add("mdi-chevron-down");
+      });
+		},
+
     compareOptionValue(val) {
       console.log(val)
       return val
